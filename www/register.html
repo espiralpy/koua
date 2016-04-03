@@ -26,44 +26,71 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css\splash.css" />
-
-        <link hrf="lib/ionic/css/ionic.css" rel="stylesheet">
-        <script src="lib/ionic/js/ionic.bundle.js"></script>
-
+        <link rel="stylesheet" type="text/css" href="css/Index.css" />
         <title>KOUA</title>
 
-        <style type="text/css">
-        .centerAll {
-                  position: absolute;
-                  left: 50%;
-                  top: 50%;
-                  transform: translate(-50%, -50%);
-                  width: 100%;
+
+<link href="lib/ionic/css/ionic.css" rel="stylesheet">
+<script srce="lib/ionic/js/ionic.bundle.js"></script>
+
+ <style type="text/css">
+.centerAll {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
                 
-                }
-         /*.centerImages
-        {
-                  position: absolute;
-                  left: 50%;
-                  top: -13%;
-                  transform: translate(-50%, -50%);
+    }
 
-        }*/
+ </style>
+ </head>
 
-        </style>
+ <body> <ng-app="starter">
 
-    </head>
-    <body ng-app="starter">
-     <div class="centerAll">
-        <div align="center" id="splash">
-            <image  src="img\splash.jpg" alt="splash" width= 60% height= 75%> </image>
-        </div>
-        <div align="center">
-        <form action="login.html">
-        <input type="image" src="img\ic_chevron_right_black_24dp.png" alt="Submit" width=15% height=15%>
-        </form>
-        </div>
+ <div class="bar bar-header bar-balanced" align="center">
+  <h1 class="title">Sign up</h1>
+ </div>
+
+
+<div class="centerAll">
+<br />
+<br />
+
+
+<div class="centerAll">
+<form name="login" id="login" action="#" method="POST" enctype="multipart/form-data">
+</form>
+</div>
+
+<br />
+
+<center><img src='img/logo-koua.png' border="0" width="150" height="200"/>
+</center>
+
+    <div class="list" align="center">
+    <Form id="contact_form" action="artesanos.html" method="POST" enctype="multipart/form-data">
+    <button class="button button-calm" style="width:40%;height:30%;">
+  Artesano
+  	</button>
+  	</Form>
+  	</div>
+
+    <div class="list" align="center">
+    <form id="contact_form" action="compradores.html" method="POST" enctype="multipart/form-data">
+    <button class="button button-calm" style="width:40%;height:30%;"> 
+  Comprador
+    </button>
+    </form>
     </div>
-    </body>
+
+</br>
+       <div align="center" id="register">
+            <a href="login.html">Have an account? Login</a>
+        </div>
+
+</div>
+
+</form>
+</body>
 </html>
