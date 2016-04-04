@@ -14,14 +14,7 @@
         <title>KOUA</title>
         
         <style type="text/css">
-        .centerAll {
-                  position: absolute;
-                  left: 50%;
-                  top: 50%;
-                  transform: translate(-50%, -50%);
-                  width: 100%;
-                
-                }
+        
 
         /*.centerImages
         {
@@ -31,51 +24,56 @@
                   transform: translate(-50%, -50%);
 
         }*/
-        .button {
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                padding: 13px 50px;
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
-                border-radius: 5px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 20px;
-                margin: 4px 2px;
-        }
-        .input {
-                font-family: Arial;
-                font-size: 18px;
-                padding: 2% 0.5%;
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
-        }
-        a:link {
-                color: #F2F2F2;
-                text-decoration: none;
-                font-family: Arial;
-                font-size: 18px;
-
-        }
+        
+    
+html, body {
+margin:0; 
+padding:0; 
+width:100%;            
+height:100%;                
+overflow-y: scroll; 
+font-family:Andalus, Arial, Helvetica, sans-serif; 
+font-size:1.1em;
+}
+ 
+     #pantalla {
+position:absolute; 
+width:100%;          
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+}
         </style>
 
     </head>
-    <body ng-app="starter">
+    <body ng-app="starter" >
+<div>                            
+<img id="pantalla" src="img/2.jpg">
+</div>
     <form name="login" id="login" action="#" method="POST" enctype="multipart/form-data">
+                               
+
+
     <div class="centerAll">
         <div align="center" id="logo">
-            <image  src="img\KOUA-1.png" alt="logo-2" width=75% height=50% ></image>
+
+        <image   src="img\KOUA-1.png"  width="570px" height="250px" ></image>
         </div>
         <br>
         <br>
          <div align="center" class="row" id="input">
-            <input id="name" class="input" name="name" type="text" placeholder="Username" size="30" /><br />
-        </div>
+        <center>
+        <img id="camera" src="img/person.png"  height="75px" width="75px" style="margin: -25px 15px"/>
+        <input id="name"  class="input" name="name" type="text" placeholder="Username"   maxlength="10" /><br />
+        </center>    
+        </div>   
         <br>
         <div align="center" class="row" id="input">
-            <input id="password" class="input" name="password" type="password" placeholder="Password" size="30" /><br />
+        <center>
+        <img id="camera" src="img/key.png"  height="75px" width="75px" style="margin: -25px 15px"/>
+            <input id="password" class="input" name="password" type="password" placeholder="Password"  maxlength="10" /><br />
+        </center>  
         </div>
         <br>
         <div align="center">
@@ -84,9 +82,11 @@
         <br>
         <br>
         <div align="center" id="register">
-            <a href="register.html">Don't have an account? Sign up</a>
+             <a href="register.html" class="url">Don't have an account? Sign up</a>
         </div>
+       
         </div>
-    </form>     
+    </form>   
+    
     </body>
 </html>

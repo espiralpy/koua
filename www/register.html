@@ -1,24 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
     <head>
         <meta charset="utf-8" />
@@ -26,71 +6,100 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/Index.css" />
+        <link rel="stylesheet" type="text/css" href="css/register.css" />
         <title>KOUA</title>
+        <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+        <script srce="lib/ionic/js/ionic.bundle.js"></script>
 
+        <style type="text/css">
+        
+        .centerAll {
+            position: absolute;
+            left: 50%;
+            top: 100px;
+            transform: translate(-50%, -50%);
+            width: 100%;             
+        }
 
-<link href="lib/ionic/css/ionic.css" rel="stylesheet">
-<script srce="lib/ionic/js/ionic.bundle.js"></script>
+        html, body {
+            margin:0; 
+            padding:0; 
+            width:100%;            
+            height:100%;     
+            font-family:Andalus, Arial, Helvetica, sans-serif; 
+            overflow-y: scroll; 
+         
+        }
+ 
+        #pantalla {
+            position:absolute; 
+            width:100%;          
+            height:100%;
+            top:0;
+            left:0;
+            z-index:-1;
+        }
 
- <style type="text/css">
-.centerAll {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-                
-    }
+        .bar {
+    background-color:#9370DB;
+     height:160px;
+     width:100%;
+      display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
 
- </style>
- </head>
+.primary {
+    display: block;
+    margin-top: 300px !important;
+}
 
- <body> <ng-app="starter">
+.primary2 {
+    display: block;
+    margin-top: 80px !important;
+}
 
- <div class="bar bar-header bar-balanced" align="center">
-  <h1 class="title">Sign up</h1>
- </div>
+.primary3 {
+    display: block;
+    margin-top: 120px !important;
+}
 
+.ss
+   
+}
+        </style>
+    </head>
 
-<div class="centerAll">
-<br />
-<br />
-
-
-<div class="centerAll">
-<form name="login" id="login" action="#" method="POST" enctype="multipart/form-data">
-</form>
-</div>
-
-<br />
-
-<center><img src='img/logo-koua.png' border="0" width="150" height="200"/>
-</center>
-
-    <div class="list" align="center">
-    <Form id="contact_form" action="artesanos.html" method="POST" enctype="multipart/form-data">
-    <button class="button button-calm" style="width:40%;height:30%;">
-  Artesano
-  	</button>
-  	</Form>
-  	</div>
-
-    <div class="list" align="center">
-    <form id="contact_form" action="compradores.html" method="POST" enctype="multipart/form-data">
-    <button class="button button-calm" style="width:40%;height:30%;"> 
-  Comprador
-    </button>
-    </form>
-    </div>
-
-</br>
-       <div align="center" id="register">
-            <a href="login.html">Have an account? Login</a>
+    <body> <ng-app="starter">
+    <div><img id="pantalla" src="img/bg_pink_normal.jpg"></div>
+    
+    <div class="bar" align="center" style="color:white;  font-size: 80px; text-align:center;  font-family: Arial">Create account</div>
+    <!--<div class="centerAll">-->
+     
+        <div class="primary">
+        <center><img src='img/logo-koua.png' border="0" width="270px" height="330px"/></center>
         </div>
+        <!--
+        <div class="list" align="center">
+            <form id="contact_form" action="artesanos.html" method="POST" enctype="multipart/form-data">
+              <button class="button button-calm" style="width:40%;height:30%;">Artesano</button>
+  	      </form>
+  	    </div>
 
-</div>
-
-</form>
+        <div class="list" align="center">
+            <form id="contact_form" action="compradores.html" method="POST" enctype="multipart/form-data">
+                <button class="button button-calm" style="width:40%;height:30%;"> Comprador</button>
+            </form>
+        </div>
+        -->
+        
+        <div  class="primary2"></div>
+        <center>
+            <img  src="img/ic_artesano.png" height="300px" width="300px" style="margin: -25px 15px" onclick="location.href = 'artesanos.html'" />
+            <img  src="img/ic_box.png"  height="300px" width="300px" style="margin: -32px 80px" onclick="location.href = 'compradores.html'" />
+        </center>  
+        <div  class="primary3"></div>
+       <div align="center" id="register"><a href="login.html" class="url">Have an account? Login</a></div>
 </body>
 </html>

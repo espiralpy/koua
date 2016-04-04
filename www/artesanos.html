@@ -26,13 +26,25 @@
         <meta name="msapplication-tap-highlight" content="no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/Index.css" />
+        <!--<link rel="stylesheet" type="text/css" href="css/Index.css" /> -->
         <title>KOUA</title>
 
 <link href="lib/ionic/css/ionic.css" rel="stylesheet">
 <script src="lib/ionic/js/ionic.bundle.js"></script>
 
  <style>
+
+ html, body {
+            margin:0; 
+            padding:0; 
+            width:100%;            
+            height:100%;     
+            font-family:Arial, Helvetica, sans-serif; 
+
+            overflow-y: scroll; 
+         
+        }
+
 .centerAll {
         position: absolute;
         left: 50%;
@@ -42,68 +54,95 @@
                 
     }
 
+      .bar {
+    background-color:#9370DB;
+     height:160px;
+     width:100%;
+      display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+ #pantalla {
+            position:absolute; 
+            width:100%;          
+            height:100%;
+            top:0;
+            left:0;
+            z-index:-1;
+        }
+
+.top1 {
+    display: block;
+    margin-top: 160px !important;
+}
+
+.top2 {
+    display: block;
+    margin-top: 80px !important;
+}
+
   </style>
 
  </head>
  <body> <ng-app="starter">
-    <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
-
-<div class="bar bar-header bar-royal" align="center">
-  <h1 class="title">Artesano</h1>
-</div>
-
-<br />
-<br />
-<br />
-
-<left><img src='img/koua.png' width="150" height="50"/>
-</left>
+  
+    <div class="bar" align="center" style="color:white;  font-size: 80px; text-align:center;  font-family: Arial">Create Account Craftsman</div>
+    <div  class="top1"></div>
+    
+       <left><img src='img/koua.png' width="160" height="60"/></left>
 
    <div class="list" align="center">
   <label class="item item-input">
-    <input id="user_name" type="text" placeholder="Name" style="width:100%;height:30%">
+   <img src="img/face.png"  height="90px" width="90px" style="margin: -25px 15px"/>Full Name
+    <input id="user_name" type="text"  style="width:100%;height:100px; font-size: 50px;  "  />
   </label>
-
+</div>
     <div class="list" align="center">
   <label class="item item-input">
-    <input id="email" type="text" placeholder="Email" style="width:100%;height:30%">
+    <img src="img/mail.png"  height="90px" width="90px" style="margin: -25px 15px"/>Email:
+    <input id="email" type="text"  style="width:100%;height:100px; font-size: 50px;  "/>
   </label>
-
+</div>
     <div class="list" align="center">
   <label class="item item-input">
-    <input id="password" type="Password" placeholder="Password" style="width:100%;height:30%">
+    <img src="img/finger.png" height="90px" width="90px" style="margin: -25px 15px"/>Password:
+    <input id="password" type="Password"  style="width:100%;height:100px; font-size: 50px;  " />
   </label>
   </div>
 
    <div class="list" align="center">
   <label class="item item-input">
-    <input id="phone" type="text" placeholder="Phone" style="width:100%;height:30%">
+    <img src="img/phone.png"  height="90px" width="90px" style="margin: -25px 15px"/>Phone:
+    <input id="phone" type="text" style="width:100%;height:100px; font-size: 50px;  " />
   </label>
-
+</div>
    <div class="list" align="center">
   <label class="item item-input">
-    <input id="cellphone" type="text" placeholder="Cellphone" style="width:100%;height:30%">
+  <img src="img/celular.png"  height="90px" width="90px" style="margin: -25px 15px"/>Cellphone:
+    <input id="cellphone" type="text"  style="width:100%;height:100px; font-size: 50px;  " />
   </label>
-
+</div>
   <div class="list" align="center">
   <label class="item item-input">
-    <input id="address" type="text" placeholder="Direction of the store" style="width:100%;height:30%">
+   <img src="img/address.png" height="90px" width="90px" style="margin: -25px 15px"/>Store Address:
+    <input id="address" type="text" style="width:100%;height:100px; font-size: 50px;  " />
   </label>
-
+</div>
   
 
   <br />
 
    <div class="list" align="center">
-<button id="create" class="button button-calm" style="width:40%;height:30%">
+<button id="create" class="button button-calm" style="width:500px;height:90px; font-size: 60px;" onclick="location.href = 'login.html'">
   Create Account
 </button>
     </div>
 
-<input align="center"id="search" formaction="register.html" type="image" src="img/left.png" alt="Submit" style="width:10%;height:10%">
-</input>
+<!--<input align="center"id="search" formaction="register.html" type="image" src="img/left.png" alt="Submit" style="width:10%;height:10%" /> -->
 
-</div>
+
 </body>	
-</form>
+
 </html>
