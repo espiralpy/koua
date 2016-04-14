@@ -1,0 +1,43 @@
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
+        
+    </head>
+    <body>
+        <SCRIPT>
+            document.getElementById('back').style.visibility = 'hidden';
+            $(document).ready(function(){
+                $('#barro').click(function(){
+                    $('#contenido').load("barro.html?title=Earthen");
+                });
+            });
+            $(document).ready(function(){
+                $('#ceramica').click(function(){
+                    $('#contenido').load("category1.php?title=ceramica");
+                });
+            });
+        </SCRIPT>
+<div align="center" >
+       <div ><img id="barro" src="img\imagenesproductos\material-barro.jpg" height="180px" width="100%"  /></div>
+        </div>
+
+
+      <div align="center" >
+       <div ><img id="ceramica" src="img\imagenesproductos\materia-ceramica1.jpg" height="180px" width="100%" /></div>
+        </div>
+
+        <div align="center" >
+       <div ><img id="barro" src="img\imagenesproductos\material-hierro.jpg" height="180px" width="100%"  /></div>
+        </div>
+
+        <div align="center" >
+       <div ><img id="barro" src="img\imagenesproductos\material-madera.jpg" height="180px" width="100%"  /></div>
+        </div>
+
+        <div align="center" >
+       <div ><img id="barro" src="img\imagenesproductos\material-telas.jpg" height="180px" width="100%"  /></div>
+        </div>
+
+       <div align="center" >
+       <div ><img id="barro" src="img\imagenesproductos\material-vidriosoplado.jpg" height="180px" width="100%"  /></div>
+        </div>
+    </body>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  
+   <style>
+   html, body {
+     overflow-y: scroll; 
+   }
+
+  .centerAll {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;           
+  }
+  
+  .bar {
+    background-color:#9370DB;
+    height:80px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  #pantalla {
+    position:absolute; 
+    width:100%;          
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+  }
+
+  .top1 {
+    display: block;
+    margin-top: 90px !important;
+  }
+
+  .top2 {
+    display: block;
+    margin-top: 80px !important;
+  }
+  </style>
+
+  <SCRIPT>
+  function parametros( name ){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+             return"";
+            else
+            return results[1];
+        }
+
+  </SCRIPT>
+
+  </head>
+  <body ng-app="starter" onload="initDatabase();">
+
+  <div class="bar" align="center" style="color:white;  font-size: 26px; text-align:center;  font-family: Arial">Settings</div>
+  <div  class="top1"></div>
+
+  <ion-pane>
+  <ion-header-bar class="bar-positive">
+      <ion-content>
+      <input type="hidden" id="id"/>
+     <div align="center">
+    <img align="center" src="img\user_icon_big.png" width="50%" height="25%"></img>
+    <h2>Personal information</h2>
+  </div>
+
+<SCRIPT type="text/javascript">
+    var user_name = parametros( 'user_name' );
+    var email = parametros( 'email' );
+    var type = parametros( 'type' );
+    var id = parametros( 'id' );
+    var phone = parametros( 'phone' );
+    var cellphone = parametros( 'cellphone' );
+    var address = parametros( 'address' );
+  </SCRIPT>
+
+<div class="list card">
+
+  <a class="item item-icon-left">
+    <i class="icon ion-android-person"></i>
+    <SCRIPT type="text/javascript">document.write(user_name);</SCRIPT>
+  </a>
+  <a class="item item-icon-left">
+    <i class="icon ion-android-mail"></i>
+   <SCRIPT type="text/javascript">document.write(email);</SCRIPT>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-ios-telephone"></i>
+   <SCRIPT type="text/javascript">document.write(phone);</SCRIPT>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-android-phone-portrait"></i>
+   <SCRIPT type="text/javascript">document.write(cellphone);</SCRIPT>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-android-pin"></i>
+    <SCRIPT type="text/javascript">document.write(address);</SCRIPT>
+  </a>
+
+</div>
+  </ion-content> 
+  </ion-pane>
+  </body>
+  <script type="text/javascript" src="codigo.js"> </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

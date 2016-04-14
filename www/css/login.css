@@ -114,8 +114,8 @@ html {
 */
 .input {
     font-family: Arial;
-    font-size: 40px;
-    padding: 2% 2%;
+    font-size: 20px;
+    padding: 10px 10px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
 }
@@ -131,7 +131,7 @@ html {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 40px;
+    font-size: 30px;
     margin: 4px 2px;
 }
 
@@ -148,5 +148,5 @@ html {
 a.url:link {color: #F2F2F2; text-decoration: none;} 
 a.url:active {color: #F2F2F2; background: none transparent;}
 a.url:visited {color: #F2F2F2; text-decoration: none}
-a.url{ font-family: Arial; font-weight: 100px; font-size:60px }
+a.url{ font-family: Arial; font-weight: 50px; font-size:20px }
 

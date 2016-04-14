@@ -1,0 +1,19 @@
+
+/*a{
+   text-decoration: none;
+   text-decoration-style: c
+}
+*/
+/*a.set2:link {color: "#5F9EA0"; background: "FF00AA"; text-decoration: none} */
+a.url:link {text-decoration: none} 
+a.url:active {color: #008080; background: none transparent;}
+a.url:visited {color: #008080; text-decoration: none}
+a.url{ font-style: italic; font-family: monospace; font-weight: 100 }
+
+div.div1 {
+	background-color:#333333;
+}
+
+div.div2 {
+	background-color:#777777;
+}

@@ -20,7 +20,6 @@
             transform: translate(-50%, -50%);
             width: 100%;             
         }
-
         html, body {
             margin:0; 
             padding:0; 
@@ -39,42 +38,36 @@
             left:0;
             z-index:-1;
         }
-
         .bar {
     background-color:#9370DB;
-     height:160px;
+     height:80px;
      width:100%;
       display: flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;
 }
-
 .primary {
     display: block;
-    margin-top: 300px !important;
+    margin-top: 100px !important;
 }
-
 .primary2 {
     display: block;
-    margin-top: 80px !important;
+    margin-top: 40px !important;
 }
-
 .primary3 {
     display: block;
     margin-top: 120px !important;
 }
-
 .ss
    
 }
         </style>
     </head>
-
     <body> <ng-app="starter">
     <div><img id="pantalla" src="img/bg_pink_normal.jpg"></div>
     
-    <div class="bar" align="center" style="color:white;  font-size: 80px; text-align:center;  font-family: Arial">Create account</div>
+    <div class="bar" align="center" style="color:white;  font-size: 26px; text-align:center;  font-family: Arial">Create account</div>
     <!--<div class="centerAll">-->
      
         <div class="primary">
@@ -84,9 +77,8 @@
         <div class="list" align="center">
             <form id="contact_form" action="artesanos.html" method="POST" enctype="multipart/form-data">
               <button class="button button-calm" style="width:40%;height:30%;">Artesano</button>
-  	      </form>
-  	    </div>
-
+          </form>
+        </div>
         <div class="list" align="center">
             <form id="contact_form" action="compradores.html" method="POST" enctype="multipart/form-data">
                 <button class="button button-calm" style="width:40%;height:30%;"> Comprador</button>
@@ -96,10 +88,10 @@
         
         <div  class="primary2"></div>
         <center>
-            <img  src="img/ic_artesano.png" height="300px" width="300px" style="margin: -25px 15px" onclick="location.href = 'artesanos.html'" />
-            <img  src="img/ic_box.png"  height="300px" width="300px" style="margin: -32px 80px" onclick="location.href = 'compradores.html'" />
+            <img  src="img/ic_artesano.png" height="150px" width="150px"  onclick="location.href = 'artesanos.html'" />
+            <img  src="img/ic_box.png"  height="150px" width="150px" style="margin: -10px 8px" onclick="location.href = 'compradores.html'" />
         </center>  
-        <div  class="primary3"></div>
+        <div  class="primary2"></div>
        <div align="center" id="register"><a href="login.html" class="url">Have an account? Login</a></div>
 </body>
 </html>

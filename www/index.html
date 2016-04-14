@@ -45,7 +45,7 @@ position: absolute;
 height: 200px;
 width: 300px;
 left: 50%;
-top: 50%;
+top: 180px;
 margin-top: -100px;
 margin-left: -150px;
 
@@ -57,18 +57,24 @@ margin-left: -150px;
     </head>
     <body ng-app="starter">
     <!-- <div class="centerAll"> -->
+    <ion-pane>
+     <ion-content>
 
+      <input type="hidden" id="id"/>
         <center>
-             <image  src="img\splash.jpg" alt="splash" style="padding-top:150px"> </image>
+             <image  src="img\splash.jpg" alt="splash" style="padding-top:150px"  width="320px" height="380px"> </image>
         </center>
        <!-- <div align="center"> -->
        <div >
       <form action="login.html"> 
         <center>
-          <input type="image" src="img\ic_chevron_right_black_24dp.png" alt="Submit" width="200px" height="200px" >
+          <input type="image" src="img\ic_chevron_right_black_24dp.png" alt="Submit" width="100px" height="100px" >
         </center>
       </form>
       </div> 
     <!-- </div> -->
+      </ion-content>
+      <!-- Inicio de código central-->  
+    </ion-pane>
     </body>
 </html>
