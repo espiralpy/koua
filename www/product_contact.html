@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <style>
+    html, body {
+     overflow-y: scroll; 
+    }
+
+  .centerAll {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;           
+  }
+  
+  .bar {
+    background-color:#9370DB;
+    height:80px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  #pantalla {
+    position:absolute; 
+    width:100%;          
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+  }
+
+  .top1 {
+    display: block;
+    margin-top: 90px !important;
+  }
+
+  .top2 {
+    display: block;
+    margin-top: 80px !important;
+  }
+  </style>
+
+  <SCRIPT>
+  function parametros( name ){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+             return"";
+            else
+            return results[1];
+        }
+
+var id_artesano = parametros( 'id_artesano' );
+var id_prod = parametros( 'id_product' );
+var category = parametros( 'category' );
+
+var createStatement = "CREATE TABLE IF NOT EXISTS Products (id INTEGER PRIMARY KEY AUTOINCREMENT, product_name varchar(50), description varchar(150), price varchar(50), quantity varchar(50), category varchar(20), user_name varchar(50), email varchar(50), phone varchar(30), cellphone varchar(30), address varchar(150), id_user varchar(5), data TEXT, id_artesano INTEGER(5))";
+var selectAllStatement = "SELECT * FROM Products WHERE category=? and id_artesano=? and id=?";
+var db = openDatabase("ProductsBook", "2.0", "Products Book", 200000);  // Open SQLite Database
+var dataset;
+var DataType;
+var onloadDone;
+
+function initDatabase(){
+
+    try {
+        if (!window.openDatabase) {alert('Databases are not supported in this browser.');}
+        else {onloadDone = false;  createTable(); }
+    }
+    catch (e) {
+        if (e == 2) {console.log("Invalid database version."); } else {console.log("Unknown error " + e + "."); } return; } 
+}
+ 
+function createTable(){ db.transaction(function (tx) { tx.executeSql(createStatement, [], showRecords, onError); }); }
+
+function onError(tx, error){alert(error.message);}
+
+function showRecords() {
+    db.transaction(function (tx) {
+        tx.executeSql(selectAllStatement, [category, id_artesano, id_prod], function (tx, result) {
+         if( onloadDone == false)
+         {
+            dataset = result.rows;
+            for (var i = 0, item = null; i < dataset.length; i++) {
+                item = dataset.item(i);
+               var linkeditdelete = '<center>'+
+               '<h1 style="color:purple">' + item['product_name'] + '</h1></br>'+
+               '<img width="300px" height="300px"src="' + item['data'] + '"></center>';
+    
+                $("#results").append(linkeditdelete);
+                
+            }
+              onloadDone = true;
+            }
+        });
+    });
+}
+
+$(document).ready(function (){ $("body").fadeIn(2000);  initDatabase(); });
+
+
+  </SCRIPT>
+  </head>
+
+  <body ng-app="starter" onload="initDatabase();">
+  
+  <SCRIPT type="text/javascript">
+          var user_name = parametros( 'user_name' );
+          var email = parametros( 'email' );
+          var type = parametros( 'type' );
+          var phone = parametros( 'phone' );
+          var cellphone = parametros( 'cellphone' );
+          var address = parametros( 'address' );
+          var description = parametros( 'description' );
+          var price = parametros( 'price' );
+          var productname = parametros( 'productname' );
+         
+          var user_name = user_name.replace(new RegExp("%20","g") ," ");
+          var phone = phone.replace(new RegExp("%20","g") ," ");
+          var cellphone = cellphone.replace(new RegExp("%20","g") ," ");
+          var address = address.replace(new RegExp("%20","g") ," ");
+          var productname = productname.replace(new RegExp("%20","g") ," ");
+          var description = description.replace(new RegExp("%20","g") ," ");
+          var price = price.replace(new RegExp("%20","g") ," ");
+
+
+          function addFavoritos(){
+            
+             var user_type=sessionStorage.getItem("user_type");
+             var user_id=sessionStorage.getItem("user_id");
+   
+            if (user_type == "Craftsman"){
+                alert("Disabled section for your type of user.");
+            } else if (user_type == "Shopper") {
+               
+                document.location.href=("producto_favoritos.html?productname=" + productname+ "&user_name="+user_name+ "&phone="+phone+ "&cellphone="+cellphone+ "&address="+address+ "&id_comprador="+user_id);
+            }
+          }
+        </SCRIPT>
+
+
+  <div class="bar" align="center" style="color:white;  font-size: 26px; text-align:center;  font-family: Arial">Product contact</div>
+  <div  class="top1"></div>
+    <ion-pane>
+      <ion-header-bar class="bar-positive">
+      </ion-header-bar>
+      <ion-content>
+      <input type="hidden" id="id"/>
+      <center>
+     
+  <div id="results"></div>
+   <a onclick="addFavoritos();"><img src="img/card.png" border="0" width="35px" height="35px"/></a><br><label>Add to favorites</label>
+</center>
+        </center>
+       
+        <div id="results"></div>
+        <div class="list card">
+         <div class="item item-divider">Description</div>
+          <a class="item item-icon-left">
+            <i class="icon ion-android-person"></i>
+            <SCRIPT type="text/javascript">document.write(description);</SCRIPT>
+          </a>
+        
+        <div class="item item-divider">Price</div>
+         <img src="img/priceicon.png" border="0" width="35" height="35"/>
+         <SCRIPT type="text/javascript">document.write(price);</SCRIPT>
+         
+         <div class="item item-divider">Category</div>
+         <SCRIPT type="text/javascript">document.write(category);</SCRIPT>
+       
+        </div>
+<SCRIPT type="text/javascript">document.write(type);</SCRIPT>
+  <div class="list card">
+<div class="item item-divider">Owner</div>
+  <a class="item item-icon-left">
+    <i class="icon ion-android-person"></i>
+    <SCRIPT type="text/javascript">document.write(user_name);</SCRIPT>
+  </a>
+  <a class="item item-icon-left">
+    <i class="icon ion-android-mail"></i>
+   <SCRIPT type="text/javascript">document.write(email);</SCRIPT>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-ios-telephone"></i>
+   <SCRIPT type="text/javascript">document.write(phone);</SCRIPT>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-android-phone-portrait"></i>
+   <SCRIPT type="text/javascript">document.write(cellphone);</SCRIPT>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-android-pin"></i>
+    <SCRIPT type="text/javascript">document.write(address);</SCRIPT>
+  </a>
+ </div>   
+  </ion-content>
+  </ion-pane>
+  </body>
+
+</html>

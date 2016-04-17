@@ -1,0 +1,66 @@
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
+       
+    </head>
+    <body>
+        <SCRIPT>
+            function parametros( name ){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+             return"";
+            else
+            return results[1];
+        }
+        var type = parametros( 'type' );
+
+            document.getElementById('back').style.visibility = 'hidden';
+         
+            $('#barro').click(function(){
+                    document.location.href=("listado_barro.html?title=Earthen&type="+type);
+            });
+            $('#ceramica').click(function(){
+                    document.location.href=("listado_ceramica.html?title=Ceramics&type="+type);
+            });
+            $('#hierro').click(function(){
+                    document.location.href=("listado_hierro.html?title=Iron&type="+type);
+            });
+            $('#madera').click(function(){
+                    document.location.href=("listado_madera.html?title=Wood&type="+type);
+            });
+            $('#telas').click(function(){
+                    document.location.href=("listado_telas.html?title=Cloth&type="+type);
+            });
+            $('#vidriosoplado').click(function(){
+                    document.location.href=("listado_vidrio.html?title=Blown-Glass&type="+type);
+            });
+        </SCRIPT>
+<div align="center" >
+       <div ><img id="barro" src="img\imagenesproductos\material-barro.jpg" height="180px" width="100%"  /></div>
+        </div>
+
+
+      <div align="center" >
+       <div ><img id="ceramica" src="img\imagenesproductos\materia-ceramica1.jpg" height="180px" width="100%" /></div>
+        </div>
+
+        <div align="center" >
+       <div ><img id="hierro" src="img\imagenesproductos\material-hierro.jpg" height="180px" width="100%"  /></div>
+        </div>
+
+        <div align="center" >
+       <div ><img id="madera" src="img\imagenesproductos\material-madera.jpg" height="180px" width="100%"  /></div>
+        </div>
+
+        <div align="center" >
+       <div ><img id="telas" src="img\imagenesproductos\material-telas.jpg" height="180px" width="100%"  /></div>
+        </div>
+
+       <div align="center" >
+       <div ><img id="vidriosoplado" src="img\imagenesproductos\material-vidriosoplado.jpg" height="180px" width="100%"  /></div>
+        </div>
+        
+
+    </body>

@@ -1,0 +1,59 @@
+<head>
+  <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+</head>
+  <body ng-app="starter" onload="initDatabase();">
+<!--
+  <div class="bar" align="center" style="color:white;  font-size: 26px; text-align:center;  font-family: Arial">Register Product</div>
+  <div  class="top1"></div>
+-->
+  <ion-pane>
+  <ion-header-bar class="bar-positive">  </ion-header-bar>
+      <ion-content>
+      <input type="hidden" id="id"/>
+ <center>
+   
+<SCRIPT type="text/javascript">
+    var user_name = parametros( 'user_name' );
+    var email = parametros( 'email' );
+    var type = parametros( 'type' );
+    var id = parametros( 'id' );
+    var phone = parametros( 'phone' );
+    var cellphone = parametros( 'cellphone' );
+    var address = parametros( 'address' );
+
+  </SCRIPT>
+
+
+<div class="list">
+
+    <a class="item item-thumbnail-left" href="#">
+      <img src="img/noimage.png">
+      <h2>Pretty Hate Machine</h2>
+      <p>Nine Inch Nails</p>
+    </a>
+
+    
+
+</div>
+ <div class="button-bar "><a class="button button-positive" onclick="insertar();">Add Product</a></div>
+<div class="button-bar">
+  <a class="button" onclick="dropTable()">Drop table</a>
+</div>
+  </ion-content> 
+  </ion-pane>
+  </body>
+   <script type="text/javascript" src="codigo_productos.js"> </script>
+
+
+
+
+
+ 
+
+
+
+
+
+

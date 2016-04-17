@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <style>
+    html, body {
+     overflow-y: scroll; 
+    }
+
+  .centerAll {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;           
+  }
+  
+  .bar {
+    background-color:#9370DB;
+    height:80px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  #pantalla {
+    position:absolute; 
+    width:100%;          
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+  }
+
+  .top1 {
+    display: block;
+    margin-top: 90px !important;
+  }
+
+  .top2 {
+    display: block;
+    margin-top: 80px !important;
+  }
+  </style>
+
+  <SCRIPT>
+  function parametros( name ){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+             return"";
+            else
+            return results[1];
+        }
+
+
+  </SCRIPT>
+  </head>
+
+  <body ng-app="starter" onload="initDatabase();">
+
+
+
+
+  <div class="bar" align="center" style="color:white;  font-size: 26px; text-align:center;  font-family: Arial">Agreement</div>
+  <div  class="top1"></div>
+    <ion-pane>
+      <ion-header-bar class="bar-positive">
+      </ion-header-bar>
+      <ion-content>
+      <input type="hidden" id="id"/>
+
+    <div>
+    <center><img src="img/priceicon.png"  height="60px" width="60px"   > </center>
+    <div class="list card">
+      This product will be added to your Favorite Products list. A dollar will be charged to your credit card and you will get the contact information of the craftsman.
+    </div>
+    <img  id="add" src="img/check.png"  height="40px" width="40px" style="margin: 20px 35px; visibility: hidden;" onclick="insertar();"  > Confirm add to favorites, pressing button. </img> </div>
+    <script type="text/javascript">
+      
+
+           var productname = parametros( 'productname' );
+          var user_name = parametros( 'user_name' );
+          var phone = parametros( 'phone' );
+          var cellphone = parametros( 'cellphone' );
+          var address = parametros( 'address' );
+          var id_comprador = parametros( 'id_comprador' );
+
+          var user_name = user_name.replace(new RegExp("%20","g") ," ");
+          var phone = phone.replace(new RegExp("%20","g") ," ");
+          var cellphone = cellphone.replace(new RegExp("%20","g") ," ");
+          var address = address.replace(new RegExp("%20","g") ," ");
+          var productname = productname.replace(new RegExp("%20","g") ," ");
+        
+          function insertar(){
+               
+
+              insertRecord(productname, user_name, phone, cellphone, address, id_comprador);
+              document.location.href=("product_favoritos_comprador.html");
+               
+          }
+          if (productname != "") {
+
+                document.getElementById('add').style.visibility = 'visible';
+            }else{
+                document.getElementById('add').style.visibility = 'hidden';
+            }
+
+    </script>
+  
+
+  </ion-content>
+  </ion-pane>
+  </body>
+  <script type="text/javascript" src="codigo_favoritos.js"> </script>
+</html>

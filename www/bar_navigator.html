@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/bar_navigator.css" />
+        <title>KOUA</title>
+        <script type="text/javascript" src="lib/jquery.js"></script>
+        <SCRIPT>
+            function menus(){location.href="menus.html";}
+   
+            
+            $(document).ready(function(){
+                    $('#contenido').load("materials.html");
+            });
+
+            $(document).ready(function(){
+                $('#camera').click(function(){
+                    $('#contenido').load("camera.html");
+                });
+            });
+      
+        function parametros( name ){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+             return"";
+            else
+            return results[1];
+        }
+
+        </SCRIPT>
+        <style>
+         html, body {
+             overflow-y: scroll; 
+         }
+
+         .trans {
+          
+            margin:0; 
+padding:0; 
+    width:100%;            
+            height:1500px; 
+            background-image: url('img/bkg_transparent.png');
+            background-size: 100%;
+            position: absolute;
+            margin-top: 80px;
+            z-index: 100px;
+         }
+         .content{
+            float: left;
+         }
+        </style>
+
+       
+    </head>
+    <body>
+        <form id="bar_navigator" action="#" method="GET" enctype="multipart/form-data">
+     
+        <div class="bar"> 
+            <div class="divLeft"><img  id="back" src="img/KOUA-1.png" height="50px" width="80px" style="margin: 15px 15px"  /></div>
+            <div  class="divTitle" style="color:white;  font-size: 26px; text-align:center;  font-family: Arial" >Materials</div>
+            <div class="divRight"><img id="menus" src="img/menu.png" height="50px" width="40px" align="right" style="margin: 14px 7px" onclick='document.location.href=("menus.html?user_name=" + user_name+ "&email="+email+ "&type="+type+ "&id="+id+ "&phone="+phone+ "&cellphone="+cellphone+ "&address="+address) ' /> </div>
+            <div  class="divRight"><img  id="add" src="img/add.png"  height="40px" width="40px" align="right" style="margin: 20px 35px" onclick='document.location.href=("producto_registrar.html?user_name=" + user_name+ "&email="+email+ "&type="+type+ "&id="+idd+ "&phone="+phone+ "&cellphone="+cellphone+ "&address="+address) '  /> </div>
+          
+            
+            </div>
+               <SCRIPT type="text/javascript">
+            var user_name = parametros( 'user_name' );
+            var email = parametros( 'email' );
+             var type = parametros( 'type' );
+             var idd = parametros( 'id' );
+            var phone = parametros( 'phone' );
+            var cellphone = parametros( 'cellphone' );
+            var address = parametros( 'address' );
+           
+          sessionStorage.setItem("user_type", type);
+          sessionStorage.setItem("user_id", idd)
+          var persistedval=sessionStorage.getItem("user_type");
+           var persistedval2=sessionStorage.getItem("user_id");
+        
+            if (type == "Craftsman") {
+
+                document.getElementById('add').style.visibility = 'visible';
+            }else{
+                document.getElementById('add').style.visibility = 'hidden';
+            }
+       
+        </SCRIPT>
+            <div id='contenido' class="content" >
+             
+        </div> 
+         <SCRIPT type="text/javascript">
+             var id = parametros( 'id' );
+             </SCRIPT>
+        </form> 
+    </body>
+</html>
+

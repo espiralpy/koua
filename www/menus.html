@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  
+   <style>
+   html, body {
+     overflow-y: scroll; 
+   }
+
+  .centerAll {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;           
+  }
+  
+  .bar {
+    background-color:#9370DB;
+    height:80px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  #pantalla {
+    position:absolute; 
+    width:100%;          
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+  }
+
+  .top1 {
+    display: block;
+    margin-top: 90px !important;
+  }
+
+  .top2 {
+    display: block;
+    margin-top: 80px !important;
+  }
+  </style>
+  <SCRIPT>
+  function parametros( name ){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+             return"";
+            else
+            return results[1];
+        }
+  var user_name = parametros( 'user_name' );
+    var email = parametros( 'email' );
+    var type = parametros( 'type' );
+    var id = parametros( 'id' );
+    var phone = parametros( 'phone' );
+    var cellphone = parametros( 'cellphone' );
+    var address = parametros( 'address' );
+  
+  function perfiles(){
+    if (type == "Shopper") {
+      document.location.href=("perfilcomprador.html?user_name=" + user_name+ "&email="+email+ "&type="+type+ "&id="+id+ "&phone="+phone+ "&cellphone="+cellphone+ "&address="+address);
+    }else if (type == "Craftsman") {
+      document.location.href=("perfilartesano.html?user_name=" + user_name+ "&email="+email+ "&type="+type+ "&id="+id+ "&phone="+phone+ "&cellphone="+cellphone+ "&address="+address);
+    }
+  }
+
+  function materials(){
+    if (type == "Shopper") {
+      document.location.href=("bar_navigator.html?user_name=" + user_name+ "&email="+email+ "&type="+type+ "&id="+id+ "&phone="+phone+ "&cellphone="+cellphone+ "&address="+address);
+    }else if (type == "Craftsman") {
+      document.location.href=("bar_navigator.html?user_name=" + user_name+ "&email="+email+ "&type="+type+ "&id="+id+ "&phone="+phone+ "&cellphone="+cellphone+ "&address="+address);
+    }
+  }
+
+
+  function logout(){
+    document.location.href=("index.html");
+  }
+  </SCRIPT>
+
+  </head>
+  <body >
+ 
+  <div class="bar" align="center" style="color:white;  font-size: 26px; text-align:center;  font-family: Arial">Settings</div>
+  <div  class="top1"></div>
+  <left><img src='img/koua.png' width="160" height="60"/></left>
+
+  <ion-pane>
+  <ion-header-bar class="bar-positive">
+  <ion-content>
+  <input type="hidden" id="id"/>
+  <form method="GET" enctype="multipart/form-data">
+ 
+
+ <div class="list card">
+
+  <a  onclick="perfiles();" class="item item-icon-left">
+    <i class="icon ion-android-person"></i>
+    Profile
+  </a>
+ 
+  <a onclick="materials();" class="item item-icon-left">
+    <i class="icon ion-home"></i>
+    Materials
+  </a>
+
+  <a href="product_favoritos_comprador.html" class="item item-icon-left">
+    <i class="icon ion-star"></i>
+    Favorites
+  </a>
+
+  <a href="AboutUs.html" class="item item-icon-left">
+    <i class="icon ion-information-circled"></i>
+    About us
+  </a>
+
+  <a onclick="logout();" class="item item-icon-left">
+    <i class="icon ion-power"></i>
+    Logout
+  </a>
+
+</div>
+
+
+  </ion-content> 
+  </ion-pane>
+  </form>
+  </body>
+  <script type="text/javascript" src="codigo.js"> </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+

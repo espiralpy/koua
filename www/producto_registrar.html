@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  
+   <style>
+   html, body {
+     overflow-y: scroll; 
+   }
+
+  .centerAll {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;           
+  }
+  
+  .bar {
+    background-color:#9370DB;
+    height:80px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
+
+  #pantalla {
+    position:absolute; 
+    width:100%;          
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+  }
+
+  .top1 {
+    display: block;
+    margin-top: 90px !important;
+  }
+
+  .top2 {
+    display: block;
+    margin-top: 80px !important;
+  }
+  </style>
+
+  <SCRIPT>
+  function parametros( name ){
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp ( regexS );
+            var tmpURL = window.location.href;
+            var results = regex.exec( tmpURL );
+            if( results == null )
+             return"";
+            else
+            return results[1];
+        }
+
+function searchImage(){
+  alert("Abrir galeria para escoger imagen");
+}
+
+   var URL = window.webkitURL || window.URL;
+
+        function encodeImage(src, callback)
+        {
+          
+           var canvas = document.createElement('canvas'),
+                ctx = canvas.getContext('2d'),
+                img = new Image();
+
+            img.onload = function ()
+            {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0, img.width, img.height);
+                callback(canvas.toDataURL());//Image become to a string
+            }
+
+            img.src = src;;
+        }
+
+        window.onload = function ()
+        {
+            var input = document.getElementById('fileImage');
+            input.addEventListener('change', handleFiles, false);
+            
+        }
+
+
+        function handleFiles(e)
+        {
+           
+            var urlImage = URL.createObjectURL(e.target.files[0]);         
+
+            encodeImage(urlImage, 
+                function (encodedImage)//Image to a string
+            {
+                document.getElementById('data').value = encodedImage;
+                document.getElementById('dataImg').src = encodedImage;
+            }
+            );
+        }
+
+  </SCRIPT>
+
+  </head>
+  <body ng-app="starter" onload="initDatabase();">
+
+  <div class="bar" align="center" style="color:white;  font-size: 26px; text-align:center;  font-family: Arial">Register Product</div>
+  <div  class="top1"></div>
+
+  <ion-pane>
+  <ion-header-bar class="bar-positive">  </ion-header-bar>
+      <ion-content>
+      <input type="hidden" id="id"/>
+ <center>
+    
+    <img id="dataImg" align="center" src="img\muebles.png" width="300px" height="300px"></img>
+  </center>
+
+
+<SCRIPT type="text/javascript">
+    var user_name = parametros( 'user_name' );
+    var email = parametros( 'email' );
+    var type = parametros( 'type' );
+    var idd = parametros( 'id' );
+    var phone = parametros( 'phone' );
+    var cellphone = parametros( 'cellphone' );
+    var address = parametros( 'address' );
+  </SCRIPT>
+
+<label class="item item-input item-stacked-label">
+        <span class="input-label">id_user</span>
+        <input maxlength="5" size="10" id="id_user" type="text" disabled="disabled">
+          
+          <SCRIPT type="text/javascript">document.write(idd);</SCRIPT>
+        </input>
+      </label>
+      </br>
+      <div class="list card">
+      <div class="item item-divider">Image</div>
+      <label class="item item-input item-stacked-label">
+        <img  id="add" src="img/camera.png" width="50px" height="50px"  align="right" style="margin: 20px 35px" onclick="searchImage();"  /> 
+        <table>
+        <tr>
+            <td colspan="2">
+            <input id="fileImage"  type="file" />
+            </td>   
+        </tr>
+        <tr>
+            <td><input disabled="disabled" id="data" type="text" placeholder="data"></td>
+        </tr>
+        </table>
+      </label>
+</div>
+<div class="list card"> 
+      <div class="item item-divider">Product</div>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Product Name</span>
+        <input maxlength="50" size="35" id="product_name" type="text" >
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Description</span>
+        <input maxlength="150" size="35" id="description" type="text" >
+      </label>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Price</span>
+        <input maxlength="50" size="35" id="price" type="text" placeholder="$0.00">
+      </label>
+      <div class="item item-divider">Category</div>
+      <label class="item item-input item-select">
+      <div class="input-label">Material</div>
+           <select id="material" >
+            <option value="Earthen">Earthen</option>
+            <option value="Ceramics">Ceramics</option>
+            <option value="Iron">Iron</option>
+            <option value="Wood">Wood</option>
+            <option value="Cloth">Cloth</option>
+            <option value="Blown-Glass">Blown Glass</option>
+          </select>
+        </label>
+</div>
+
+<SCRIPT type="text/javascript">
+function insertar(){
+var e = document.getElementById("material");
+var strUser = e.options[e.selectedIndex].value;
+insertRecord(user_name,strUser, email, phone, cellphone, address, idd);
+}
+</SCRIPT>
+ <SCRIPT type="text/javascript">
+var e = document.getElementById("material");
+var strUser = e.options[e.selectedIndex].value;
+</SCRIPT>
+<div class="list card">
+<div class="item item-divider">Owner</div>
+  <a class="item item-icon-left">
+    <i class="icon ion-android-person"></i>
+    <SCRIPT type="text/javascript">document.write(user_name);</SCRIPT>
+  </a>
+  <a class="item item-icon-left">
+    <i class="icon ion-android-mail"></i>
+   <SCRIPT type="text/javascript">document.write(email);</SCRIPT>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-ios-telephone"></i>
+   <SCRIPT type="text/javascript">document.write(phone);</SCRIPT>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-android-phone-portrait"></i>
+   <SCRIPT type="text/javascript">document.write(cellphone);</SCRIPT>
+  </a>
+
+  <a class="item item-icon-left">
+    <i class="icon ion-android-pin"></i>
+    <SCRIPT type="text/javascript">document.write(address);</SCRIPT>
+  </a>
+
+</div>
+
+ 
+
+ <div class="button-bar "><a class="button button-positive" onclick="insertar();">Add Product</a></div>
+<div class="button-bar">
+  <a class="button" onclick="dropTable()">Drop table</a>
+</div>
+  </ion-content> 
+  </ion-pane>
+  </body>
+   <script type="text/javascript" src="codigo_productos.js"> </script>
+</html>
+
+
+
+
+ 
+
+
+
+
+
+
