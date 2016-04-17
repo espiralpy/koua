@@ -5,7 +5,7 @@ var createStatement = "CREATE TABLE IF NOT EXISTS Products (id INTEGER PRIMARY K
 var selectAllStatement = "SELECT * FROM Products";
  
 var insertStatement = "INSERT INTO Products (product_name, description, price, quantity, category, user_name, email, phone, cellphone, address, id_user, data, id_artesano) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
- 
+
 var updateStatement = "UPDATE Products SET product_name = ?, description = ?, price = ?, quantity=? WHERE id=?";
  
 var deleteStatement = "DELETE FROM Products WHERE id=?";
@@ -72,8 +72,7 @@ function createTable()  // Function for Create Table in SQLite.
  
 }
  
-function insertRecord(user_name, category, email, phone, cellphone, address, idd) // Get value from Input and insert record . Function Call when Save/Submit Button Click..
- 
+function insertRecord(user_name, category, email, phone, cellphone, address, idd) // Get value from Input and insert record . Function Call when Save/Submit Button Click.. 
 {
 
         var product_nametemp = $('input:text[id=product_name]').val();
@@ -91,10 +90,12 @@ function insertRecord(user_name, category, email, phone, cellphone, address, idd
         var id_usertemp = $('input:text[id=id_user]').val();
         var datatemp = $('input:text[id=data]').val();
 
+
         if (product_nametemp == "" || descriptiontemp == "" || pricetemp == "" ) {
             alert("Empty fields");
         }else{
             db.transaction(function (tx) { tx.executeSql(insertStatement, [product_nametemp, descriptiontemp, pricetemp, quantitytemp, category, user_name, email, phone, cellphone, address, id_usertemp, datatemp, id_artesano ], loadAndReset, onError); });
+
             alert("Record inserted");
         }
         //tx.executeSql(SQL Query Statement,[ Parameters ] , Sucess Result Handler Function, Error Result Handler Function );
@@ -157,6 +158,7 @@ function loadRecord(i) // Function for display records which are retrived from d
     $("#phone").val((item['phone']).toString());
     $("#cellphone").val((item['cellphone']).toString());
     $("#address").val((item['address']).toString());
+
     $("#id_user").val((item['id_user']).toString());
     $("#data").val((item['data']).toString());
     $("#dataImg").attr("src",(item['data']).toString());
@@ -213,11 +215,11 @@ function showRecords() // Function For Retrive data from Database Display record
  
                 item = dataset.item(i);
            
-
                 var linkeditdelete = '<li class="item">' + item['id'] + '   ' + item['product_name'] + '   ' + item['id_artesano'] + '   ' + item['category'] + '   ' + item['user_name'] + '   ' + '<a href="#" onclick="loadRecord(' + i + ');">Editar</a>' + '    ' +
  
                                            '<a href="#" onclick="deleteRecord(' + item['id'] + ');">Eliminar</a></li>';
               
+
                 $("#results").append(linkeditdelete);
  
             }

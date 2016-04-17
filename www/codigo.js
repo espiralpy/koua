@@ -202,8 +202,7 @@ function login(id) // Get id of record . Function Call when Delete Button Click.
                 dataset = result.rows;
  
                  for (var i = 0, item = null; i < dataset.length; i++) {
-
-                    item = dataset.item(i);
+                     item = dataset.item(i);
                     var id =item['id'];
                     var user_name =item['user_name'];
                     var email =item['email'];
@@ -212,6 +211,7 @@ function login(id) // Get id of record . Function Call when Delete Button Click.
                     var address =item['address'];
                     var type =item['type'];
                     document.location.href=("bar_navigator.html?user_name=" + user_name+ "&email="+email+ "&type="+type+ "&id="+id+ "&phone="+phone+ "&cellphone="+cellphone+ "&address="+address);
+                   
                 }
             }
             else

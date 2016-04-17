@@ -23,7 +23,7 @@
                     $('#contenido').load("camera.html");
                 });
             });
-      
+
         function parametros( name ){
             var regexS = "[\\?&]"+name+"=([^&#]*)";
             var regex = new RegExp ( regexS );
@@ -67,14 +67,15 @@ padding:0;
             <div class="divLeft"><img  id="back" src="img/KOUA-1.png" height="50px" width="80px" style="margin: 15px 15px"  /></div>
             <div  class="divTitle" style="color:white;  font-size: 26px; text-align:center;  font-family: Arial" >Materials</div>
             <div class="divRight"><img id="menus" src="img/menu.png" height="50px" width="40px" align="right" style="margin: 14px 7px" onclick='document.location.href=("menus.html?user_name=" + user_name+ "&email="+email+ "&type="+type+ "&id="+id+ "&phone="+phone+ "&cellphone="+cellphone+ "&address="+address) ' /> </div>
+
             <div  class="divRight"><img  id="add" src="img/add.png"  height="40px" width="40px" align="right" style="margin: 20px 35px" onclick='document.location.href=("producto_registrar.html?user_name=" + user_name+ "&email="+email+ "&type="+type+ "&id="+idd+ "&phone="+phone+ "&cellphone="+cellphone+ "&address="+address) '  /> </div>
-          
-            
+     
             </div>
                <SCRIPT type="text/javascript">
             var user_name = parametros( 'user_name' );
             var email = parametros( 'email' );
              var type = parametros( 'type' );
+
              var idd = parametros( 'id' );
             var phone = parametros( 'phone' );
             var cellphone = parametros( 'cellphone' );
@@ -85,6 +86,7 @@ padding:0;
           var persistedval=sessionStorage.getItem("user_type");
            var persistedval2=sessionStorage.getItem("user_id");
         
+
             if (type == "Craftsman") {
 
                 document.getElementById('add').style.visibility = 'visible';
@@ -96,9 +98,7 @@ padding:0;
             <div id='contenido' class="content" >
              
         </div> 
-         <SCRIPT type="text/javascript">
-             var id = parametros( 'id' );
-             </SCRIPT>
+
         </form> 
     </body>
 </html>

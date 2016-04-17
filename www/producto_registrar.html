@@ -122,10 +122,8 @@ function searchImage(){
       <ion-content>
       <input type="hidden" id="id"/>
  <center>
-    
     <img id="dataImg" align="center" src="img\muebles.png" width="300px" height="300px"></img>
   </center>
-
 
 <SCRIPT type="text/javascript">
     var user_name = parametros( 'user_name' );
@@ -161,6 +159,7 @@ function searchImage(){
         </table>
       </label>
 </div>
+
 <div class="list card"> 
       <div class="item item-divider">Product</div>
       <label class="item item-input item-stacked-label">
@@ -194,6 +193,7 @@ function insertar(){
 var e = document.getElementById("material");
 var strUser = e.options[e.selectedIndex].value;
 insertRecord(user_name,strUser, email, phone, cellphone, address, idd);
+
 }
 </SCRIPT>
  <SCRIPT type="text/javascript">
@@ -227,8 +227,6 @@ var strUser = e.options[e.selectedIndex].value;
   </a>
 
 </div>
-
- 
 
  <div class="button-bar "><a class="button button-positive" onclick="insertar();">Add Product</a></div>
 <div class="button-bar">
