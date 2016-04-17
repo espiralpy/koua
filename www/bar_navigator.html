@@ -74,18 +74,19 @@ padding:0;
                <SCRIPT type="text/javascript">
             var user_name = parametros( 'user_name' );
             var email = parametros( 'email' );
-             var type = parametros( 'type' );
+            var type = parametros( 'type' );
 
-             var idd = parametros( 'id' );
+            var idd = parametros( 'id' );
             var phone = parametros( 'phone' );
             var cellphone = parametros( 'cellphone' );
             var address = parametros( 'address' );
            
-          sessionStorage.setItem("user_type", type);
-          sessionStorage.setItem("user_id", idd)
-          var persistedval=sessionStorage.getItem("user_type");
+           sessionStorage.setItem("user_type", type);
+           sessionStorage.setItem("user_id", idd)
+           sessionStorage.setItem("user_name", user_name)
+           var persistedval=sessionStorage.getItem("user_type");
            var persistedval2=sessionStorage.getItem("user_id");
-        
+           var persistedval3=sessionStorage.getItem("user_name");
 
             if (type == "Craftsman") {
 

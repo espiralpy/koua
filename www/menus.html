@@ -85,6 +85,14 @@
     }
   }
 
+function favoritos(){
+    if (type == "Shopper") {
+      document.location.href=("product_favoritos_comprador.html");
+    }else if (type == "Craftsman") {
+      document.location.href=("product_favoritos_artesano.html");
+    }
+  }
+
 
   function logout(){
     document.location.href=("index.html");
@@ -117,7 +125,7 @@
     Materials
   </a>
 
-  <a href="product_favoritos_comprador.html" class="item item-icon-left">
+  <a onclick="favoritos();" class="item item-icon-left">
     <i class="icon ion-star"></i>
     Favorites
   </a>
