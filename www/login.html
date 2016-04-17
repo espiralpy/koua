@@ -3,109 +3,116 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+    <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="css\login.css" />
+    <style>
+    html, body {
+     overflow-y: scroll; 
+    }
 
-<script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css\login.css" />
-   <link hrf="lib/ionic/css/ionic.css" rel="stylesheet">
-        <script src="lib/ionic/js/ionic.bundle.js"></script>
-  <style type="text/css">
+  .centerAll {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;           
+  }
+  
+  .bar {
+    background-color:#9370DB;
+    height:80px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+  }
 
-    
 html, body {
 margin:0; 
 padding:0; 
 width:100%;            
-height:100%;                
-overflow-y: scroll; 
-font-family:Andalus, Arial, Helvetica, sans-serif; 
-font-size:1.1em;
+height:100%; 
 }
- 
-     #pantalla {
-position:absolute; 
-width:100%;          
-height:100%;
-top:0;
-left:0;
-z-index:-1;
-}
-        </style>
 
-  </head>
-  <!--body ng-app="starter" onload="initDatabase();"-->
-  <body ng-app="starter" onload="initDatabase();">
+  #pantalla {
+    position:absolute; 
+    width:100%;          
+    height:100%;
+    top:0;
+    left:0;
+    z-index:-1;
+  }
+
+  .top1 {
+    display: block;
+    margin-top: 90px !important;
+  }
+
+  .top2 {
+    display: block;
+    margin-top: 80px !important;
+  }
+  </style>
+
  
- <img id="pantalla" src="img/fondo.jpg">
-<!-- Inicio de código central-->
+  </head>
+
+  <body ng-app="starter" onload="initDatabase();" >
+    <img id="pantalla" src="img/3.jpg">
+    <div  class="top1"></div>
     <ion-pane>
       <ion-header-bar class="bar-positive">
       </ion-header-bar>
       <ion-content>
       <input type="hidden" id="id"/>
-
-  <div class="list"> 
-   <!--  
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">CORREO ELECTRÓNICO</span>
-        <input id="email" type="text" placeholder="Maritza01@hotmail.com">
+      <center>
+      <image   src="img\KOUA-2.png"  width="260px" height="140px" ></image>
+      <br> <br>
+     
+      </center>
+     
+      <div class="list card"> 
+      <div class="list" align="center">
+      <label class="item item-input">
+      <img src="img/mail.png"  height="50px" width="50px" style="margin: -25px 15px"/>
+      <input id="email"  class="input"  type="text" placeholder="E-mail"   maxlength="50" />
       </label>
-    </br>
-      <label class="item item-input item-stacked-label">
-        <span class="input-label">CONTRASEÑA</span>
-        <input id="password" type="text" placeholder="***********">
+      </div>
+      </div>
+
+      <div class="list card"> 
+      <div class="list" align="center">
+      <label class="item item-input">
+      <img src="img/finger.png"  height="50px" width="50px" style="margin: -25px 15px"/>
+       <input id="password" class="input" type="password" placeholder="Password"  maxlength="10" /><br />
       </label>
-    </br>
-     <a href="#">
-      <button class="button button-full button-positive" onclick="login()"> 
-        Enviar
-      </button>
-      </a>
-
-     -->
- <div class="centerAll">
-        <div align="center" id="logo">
-
-        <image   src="img\KOUA-1.png"  width="310px" height="140px" ></image>
-        </div>
+      </div>
+      </div>
+      <p>
         <br>
-        <br>
-         <div align="center" class="row" >
-        <center>
-        <img id="camera" src="img/person.png"  height="45px" width="45px" style="margin: -15px 15px"/>
-        <input id="email"  class="input"  type="text" placeholder="E-mail"   maxlength="50" /><br />
-        </center>    
-        </div>   
-        <br>
-        <div align="center" class="row" >
-        <center>
-        <img id="camera" src="img/key.png"  height="45px" width="45px" style="margin: -25px 15px"/>
-            <input id="password" class="input" type="password" placeholder="Password"  maxlength="10" /><br />
-        </center>  
-        </div>
-        <br>
-        <div align="center">
-        <button class="button" onclick="login();">Login</button>
-        </div>
-        <br>
-        <br>
-        <div align="center" id="register">
-             <a href="register.html" class="url">Don't have an account? Sign up</a>
-        </div>
        
-        </div>
+       
+      <div align="center">
+        <button class="button" onclick="login();">Login</button>
+      </div>
+      <br>
+        <br>
+      <div align="center" id="register">
+             <a href="register.html" class="url">Don't have an account? Sign up</a>
+      </div> 
+      <div  class="top1"></div>
+
+    
+     
+    
+       
 
 </div>
-
-  
-      </ion-content> 
-    </ion-pane>
-     <a href="listado_usuarios.html">maritza</a>
-  
- <a href="listado_productos.html">maritza</a>
-   
-   <a href="listado_favoritos.html">maritza</a>
-
+  </ion-content>
+  </ion-pane>
   </body>
-   <script type="text/javascript" src="codigo.js"> </script>
+  <script type="text/javascript" src="codigo.js"> </script>
 </html>

@@ -74,7 +74,7 @@ function createTable()  // Function for Create Table in SQLite.
  
 }
  
-function insertRecord() // Get value from Input and insert record . Function Call when Save/Submit Button Click..
+function insertRecord(type) // Get value from Input and insert record . Function Call when Save/Submit Button Click..
  
 {
 
@@ -84,10 +84,10 @@ function insertRecord() // Get value from Input and insert record . Function Cal
         var phonetemp = $('input:text[id=phone]').val();
         var cellphonetemp = $('input:text[id=cellphone]').val();
         var addresstemp = $('input:text[id=address]').val();
-        var typetemp = $('input:text[id=type]').val();
-
+        //var typetemp = $('input:text[id=type]').val();
+        var typetemp = type;
         db.transaction(function (tx) { tx.executeSql(insertStatement, [user_nametemp, emailtemp, passwordtemp,phonetemp,cellphonetemp,addresstemp,typetemp], loadAndReset, onError); });
- 
+        alert("Account created.")
         //tx.executeSql(SQL Query Statement,[ Parameters ] , Sucess Result Handler Function, Error Result Handler Function );
  
 }

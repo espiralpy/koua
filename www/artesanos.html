@@ -107,14 +107,20 @@
       </div>
 
       </div>
-
-      <label class="item item-input item-stacked-label">
-      <span class="input-label">Type</span>
-      <input maxlength="10" size="10" id="type" type="text" placeholder="Craftsman or Shopper">
+      <label class="item item-input item-select">
+           <div class="input-label">User Type</div>
+           <select id="type_user" >
+            <option value="Craftsman">Craftsman</option>
+          </select>
       </label>
   </div>
+  </div>
   </br>
-  <div class="button-bar"><a class="button" onclick="insertRecord()">Create Account</a></div>
+   <SCRIPT type="text/javascript">
+      var e = document.getElementById("type_user");
+      var typeuser = e.options[e.selectedIndex].value;
+   </SCRIPT>
+  <div class="button-bar"><a class="button" onclick="insertRecord(typeuser)">Create Account</a></div>
 <!--
 <div class="button-bar">
   <a class="button" onclick="dropTable()">Drop table</a>
